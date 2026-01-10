@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-900">
+      <div
+        class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+      >
+        <!-- Logo -->
+        <a href="#" class="flex items-center">
+          <img src="/assets/logotwogren.png" class="h-8 mr-3" alt="Logo" />
+          <span
+            class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+            ></span
+          >
+        </a>
+        <!-- Botão do Menu Hambúrguer -->
+        <button
+          id="menu-toggle"
+          type="button"
+          class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg lg:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Abrir menu principal</span>
+          <svg
+            class="w-6 h-6"
+            aria-hidden="true"
+            xmlns=""
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16m-7 6h7"
+            />
+          </svg>
+        </button>
+        <!-- Links do Menu -->
+        <div class="hidden w-full lg:block lg:w-auto" id="navbar-default">
+          <ul class="flex flex-col mt-4 lg:flex-row lg:space-x-8 lg:mt-0">
+            <li>
+              <a
+                href="index.html"
+                class="menu-link block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 lg:hover:bg-transparent lg:border-0 lg:hover:text-blue-700 lg:p-0 dark:text-gray-400 lg:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white lg:dark:hover:bg-transparent"
+                >Início</a
+              >
+            </li>
+            
+      </div>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/flowbite/dist/flowbite.min.js"></script>
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const navbar = document.getElementById("navbar-default");
+      const menuLinks = document.querySelectorAll(".menu-link");
+
+      menuToggle.addEventListener("click", () => {
+        navbar.classList.toggle("hidden");
+      });
+
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (!navbar.classList.contains("hidden")) {
+            navbar.classList.add("hidden");
+          }
+        });
+      });
+    </script>
+    <!-- Conferência missionária 2025 -->
+<div class="max-w-7xl mx-auto p-6 mt-10 bg-white rounded-lg shadow-md">
+  <h2 class="text-2xl font-semibold text-center mb-6">
+    Conferência missionária 2025
+  </h2>
+  <table class="min-w-full table-auto border-collapse">
+    <thead>
+      <tr>
+        <th class="px-4 py-2 text-left font-bold border-b">Data</th>
+        <th class="px-4 py-2 text-left font-bold border-b">Evento</th>
+        <th class="px-4 py-2 text-left font-bold border-b">Horário / Detalhes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td class="px-4 py-2 border-b">18/5</td><td class="px-4 py-2 border-b">Ensaio</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">20/5</td><td class="px-4 py-2 border-b">Reunião e confraternização</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">24/5</td><td class="px-4 py-2 border-b">Concentração evangelística</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">25/5</td><td class="px-4 py-2 border-b">Batismo</td><td class="px-4 py-2 border-b"></td></tr>
+      
+      <tr><td class="px-4 py-2 border-b">31/5</td><td class="px-4 py-2 border-b">Ensaio</td><td class="px-4 py-2 border-b">16:00h</td></tr>
+      <tr><td class="px-4 py-2 border-b">1/6</td><td class="px-4 py-2 border-b">“Vivendo a fé: Diálogos da Nova Geração"</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">8/6</td><td class="px-4 py-2 border-b">Ensaio</td><td class="px-4 py-2 border-b"></td></tr>
+       <tr><td class="px-4 py-2 border-b">20/6</td><td class="px-4 py-2 border-b">Ensaio Apoty</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">12/6</td><td class="px-4 py-2 border-b">Avivamento Jovem (vila da caixa)</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">15/6</td><td class="px-4 py-2 border-b">Ação social das profissões</td><td class="px-4 py-2 border-b">Local a definir</td></tr>
+      <tr><td class="px-4 py-2 border-b">21/6</td><td class="px-4 py-2 border-b">Culto de reencontro</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">22/6</td><td class="px-4 py-2 border-b">Ensaio</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">24/6</td><td class="px-4 py-2 border-b">Consagração</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">26/6</td><td class="px-4 py-2 border-b">Oração Avivada</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">29/6</td><td class="px-4 py-2 border-b">Só para rapazes/moças</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">5/7</td><td class="px-4 py-2 border-b">Ensaio</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">6/7</td><td class="px-4 py-2 border-b">Encontro das profissões</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr><td class="px-4 py-2 border-b">13/7</td><td class="px-4 py-2 border-b">Ensaio</td><td class="px-4 py-2 border-b"></td></tr>
+      <tr>
+        <td class="px-4 py-2 border-b">18 e 19/7</td>
+        <td class="px-4 py-2 border-b">Conferência missionária</td>
+        <td class="px-4 py-2 border-b">
+          <div>Sexta - Processional</div>
+          <div>Sábado - Apresentação acróstica</div>
+          <div>Domingo (EBD missionária) - Técnicas e práticas de abordagem ao evangelizar</div>
+          <div>Domingo (Noite) 20/7 - Festividade do Geração Eleita (Grande coral forma)</div>
+        </td>
+      </tr>
+      <tr>
+        <td class="px-4 py-2 border-b" colspan="3">
+          Dois finais de semana para capacitação de lideranças (A definir)
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+
+
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+}
+
+.registration-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select {
+  width: 75%;
+  padding: 10px;
+  box-sizing: border-box;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #540959;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+#buttonvoltar{
+  background-color: #4c70af;
+  color:white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 9px;
+  cursor: pointer;
+  text-decoration: none;
+
+}
+
+

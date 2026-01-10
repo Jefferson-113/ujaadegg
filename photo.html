@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Galeria Responsiva</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 10px;
+        padding: 10px;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <img src="assets/camisaki.jpg" alt="Imagem 1" />
+      <img src="assets/camisaki.jpg" alt="Imagem 2" />
+      <img src="assets/camisaki.jpg" alt="Imagem 3" />
+      <!-- Adicione mais imagens conforme necessário -->
+    </div>
+  </body>
+</html>

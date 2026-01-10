@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hinos Futuros</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      #banner {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+        animation: notesAnimation 5s infinite;
+      }
+      @keyframes notesAnimation {
+        0% {
+          background-position: 0 0;
+        }
+        100% {
+          background-position: 100% 100%;
+        }
+      }
+      .video-container {
+        width: 320px;
+        height: 180px;
+        margin: 0 auto; /* Centralizar o vídeo */
+      }
+      .swiper-container {
+        width: 100%;
+        height: 300px;
+      }
+      .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .banner {
+        padding: 20px;
+        color: white;
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        animation: fadeIn 10s infinite;
+      }
+      @keyframes fadeIn {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      .banner-1 {
+        background: linear-gradient(to right, #ff7e5f, #feb47b);
+      }
+      .banner-2 {
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+      }
+      .banner-3 {
+        background: linear-gradient(to right, #ffafbd, #ffc3a0);
+      }
+      .banner-4 {
+        background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+      }
+      .banner-5 {
+        background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      }
+      .suggestion-section {
+        background: linear-gradient(to right, #654321, #8b4513);
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100">
+    <header id="banner" class="p-6 text-center text-white">
+      <h1 class="text-4xl font-bold">Hinos Futuros</h1>
+      <p class="mt-2">Um lugar para os hinos do futuro</p>
+      <button class="mt-4 px-6 py-2 bg-white text-gray-800 rounded-full">
+        <a href="index.html">Início</a>
+      </button>
+    </header>
+
+    <section id="banners" class="my-8">
+      <div class="container mx-auto">
+        <div class="banner banner-1">Ana Nóbrega - Santo pra Sempre</div>
+        <div class="banner banner-2">Sarah Farias - Se Eu Não Te Ouvir</div>
+        <div class="banner banner-3">Sarah Oliveira - Caia Fogo</div>
+        <div class="banner banner-4">Rendido Estou Aline Barros</div>
+        <div class="banner banner-5">Canção do Apocalipse - Nivea Soares</div>
+      </div>
+    </section>
+
+    <section id="video-list" class="my-8">
+      <div class="container mx-auto">
+        <h2 class="text-2xl font-bold mb-4"></h2>
+        <ul>
+          <li class="mb-8">
+            <div class="video-container">
+              <iframe
+                width="320"
+                height="180"
+                src="https://www.youtube.com/embed/-841Zit4t30?si=EsqIayRBYZ6dQI_K"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </li>
+          <li class="mb-8">
+            <div class="video-container">
+              <iframe
+                width="320"
+                height="180"
+                src="https://www.youtube.com/embed/KXJpP0jd9Lk?si=cyGw4Fm6_y5Jn_sx"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </li>
+          <li class="mb-8">
+            <div class="video-container">
+              <iframe
+                width="320"
+                height="180"
+                src="https://www.youtube.com/embed/MtmPAU7Yi7U?si=Z9OUxyy0hDpH0CiG"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </li>
+          <li class="mb-8">
+            <div class="video-container">
+              <iframe
+                width="320"
+                height="180"
+                src="https://www.youtube.com/embed/iXTCIBAHq7Q?si=VwAptOlv8d2_Xwka"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </li>
+          <li class="mb-8">
+            <div class="video-container">
+              <iframe
+                width="320"
+                height="180"
+                src="https://www.youtube.com/embed/4HdcpdFBABQ?si=FUhD50WryeoDGSo-"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="suggestion" class="my-8 text-center suggestion-section">
+      <h2 class="text-2xl font-bold">Envie sua sugestão</h2>
+      <p class="mt-4">
+        Clique no botão abaixo para enviar sua mensagem via WhatsApp
+      </p>
+      <button class="mt-4 px-6 py-2 bg-green-500 text-white rounded-full">
+        <a
+          href="https://api.whatsapp.com/send?phone=5581999142271&text=Sua%20mensagem%20aqui"
+          target="_blank"
+          >Enviar Sugestão</a
+        >
+      </button>
+    </section>
+
+    <footer class="py-4 bg-gray-800 text-white text-center">
+      <p>&copy; 2025 Hinos Futuros. Todos os direitos reservados Webpro.</p>
+    </footer>
+  </body>
+</html>

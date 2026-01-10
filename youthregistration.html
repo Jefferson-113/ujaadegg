@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styletwo.css" />
+    <title>Formulário de Cadastro</title>
+  </head>
+  <body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
+    <div class="w-full flex flex-col items-center justify-center py-8">
+      <img 
+        src="assets/conferencia2025.png" 
+        alt="Logo" 
+        class="max-w-xs w-full h-auto mb-6 rounded-lg shadow"
+        style="max-width: 220px;"
+      >
+      <form
+        action="https://sheetdb.io/api/v1/r7yy7fwut5dqn"
+        method="post"
+        class="w-full max-w-md bg-white p-6 rounded-lg shadow-md flex flex-col gap-4"
+      >
+        <h2 class="text-center mb-4 text-xl font-bold text-gray-700">Cadastro Jovens UJAADEGG 2025</h2>
+        <div class="flex flex-col gap-1">
+          <label for="nome" class="font-medium">Nome:</label>
+          <input type="text" id="nome" name="data[nome]" required class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="email" class="font-medium">E-mail:</label>
+          <input type="email" id="email" name="data[email]" required class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="congregacao" class="font-medium">Congregação:</label>
+          <input type="text" id="congregacao" name="data[congregacao]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="telefone" class="font-medium">Fone:</label>
+          <input type="tel" id="telefone" name="data[fone]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="funcao" class="font-medium">Função na Igreja:</label>
+          <select id="funcao" name="data[funcao]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+            <option value="canta">Nenhum</option>
+            <option value="canta">Canta</option>
+            <option value="prega">Prega</option>
+            <option value="equipe_louvor">Equipe de Louvor</option>
+          </select>
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="nome_pai" class="font-medium">Nome do Pai:</label>
+          <input type="text" id="nome_pai" name="data[nome_pai]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="nome_mae" class="font-medium">Nome da Mãe:</label>
+          <input type="text" id="nome_mae" name="data[nome_mae]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="data_nascimento" class="font-medium">Data de Nascimento:</label>
+          <input type="date" id="data_nascimento" name="data[data_nascimento]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="bairro" class="font-medium">Bairro:</label>
+          <input type="text" id="bairro" name="data[bairro]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="cidade" class="font-medium">Cidade:</label>
+          <input type="text" id="cidade" name="data[cidade]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col gap-1">
+          <label for="area" class="font-medium">Área:</label>
+          <input type="text" id="area" name="data[area]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+        <div class="flex flex-col items-center gap-2 mt-2">
+          <button 
+            type="submit" 
+            name="submit" 
+            class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+            onclick="return showAlert()"
+          >Enviar</button>
+          <a id="buttonvoltar" href="index.html" class="text-blue-600 hover:underline">Voltar</a>
+        </div>
+      </form>
+    </div>
+    <script>
+      function showAlert() {
+        alert('Formulário enviado com sucesso!');
+        // Permite o envio do formulário após o alerta
+        return true;
+      }
+    </script>
+    <script src="index.js"></script>
+  </body>
+</html>
