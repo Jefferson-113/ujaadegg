@@ -67,7 +67,7 @@
         <img src="assets/bannergrandecoral226.png" class="absolute block w-full h-full object-cover" alt="Imagem 1">
       </div>
       <div class="duration-700 ease-in-out" data-carousel-item>
-        <img src="assets/ensaiobanner .png" class="absolute block w-full h-full object-cover" alt="Imagem 2">
+        <img src="assets/play.png" class="absolute block w-full h-full object-cover" alt="Imagem 2">
       </div>
       <div class="duration-700 ease-in-out" data-carousel-item>
         <img src="assets/hinarioatua.png" class="absolute block w-full h-full object-cover" alt="Imagem 3">
@@ -101,7 +101,7 @@
         </div>
         <div class="p-[2px] rounded-2xl bg-gradient-to-r from-green-400 via-blue-500 to-purple-500">
           <a
-            href="https://open.spotify.com/playlist/6hJ0vS3t14MHjjHvxBiLRF?si=58b2cd0e463b4036&pt=0776cea10a31f264e06b617accbdc692"
+            href="https://open.spotify.com/playlist/6hJ0vS3t14MHjjHvxBiLRF?si=1e65a341e2c647b3&pt=2ac7b85b9a5093b553f87c876def63ad"
             class="flex flex-col items-center space-y-2 p-4 bg-green-600 rounded-2xl text-center hover:opacity-90 h-full"
           >
             <img
@@ -127,6 +127,71 @@
         </div>
       </div>
     </section>
+
+     <div class="relative w-full max-w-xl h-72">
+
+    <!-- SLIDE 1 -->
+    <div class="slide absolute inset-0 flex items-center justify-center opacity-100 transition-opacity duration-1000">
+      <div class="w-11/12 p-10 rounded-2xl text-center bg-gradient-to-r from-yellow-500 to-orange-500 text-black">
+        <span class="text-2xl font-bold">1°</span>
+        <h2 class="text-2xl font-bold mt-3">Não Temas – Ao Vivo</h2>
+        <p>Diante do Trono</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 2 -->
+    <div class="slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-1000">
+      <div class="w-11/12 p-10 rounded-2xl text-center bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+        <span class="text-2xl font-bold">2°</span>
+        <h2 class="text-2xl font-bold mt-3">Grita – Ao Vivo</h2>
+        <p>Canção & Louvor, Todah Music</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 3 -->
+    <div class="slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-1000">
+      <div class="w-11/12 p-10 rounded-2xl text-center bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
+        <span class="text-2xl font-bold">3°</span>
+        <h2 class="text-2xl font-bold mt-3">Tudo É Perda – Ao Vivo</h2>
+        <p>Felipe Rodrigues</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 4 -->
+    <div class="slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-1000">
+      <div class="w-11/12 p-10 rounded-2xl text-center bg-gradient-to-r from-green-500 to-emerald-500 text-white">
+        <span class="text-2xl font-bold">4°</span>
+        <h2 class="text-2xl font-bold mt-3">Esse Adorador – Ao Vivo</h2>
+        <p>Shirley Carvalhaes</p>
+      </div>
+    </div>
+
+    <!-- SLIDE 11 -->
+    <div class="slide absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-1000">
+      <div class="w-11/12 p-10 rounded-2xl text-center bg-gradient-to-r from-orange-500 to-red-600 text-white">
+        <span class="text-2xl font-bold">11°</span>
+        <h2 class="text-2xl font-bold mt-3">Aleluia, Salvação e Glória</h2>
+        <p>João 1</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const slides = document.querySelectorAll('.slide');
+    let index = 0;
+
+    setInterval(() => {
+      slides[index].classList.remove('opacity-100');
+      slides[index].classList.add('opacity-0');
+
+      index = (index + 1) % slides.length;
+
+      slides[index].classList.remove('opacity-0');
+      slides[index].classList.add('opacity-100');
+    }, 4000);
+  </script>
  
 
 <section class="section3 space-y-50 -mb-65">
