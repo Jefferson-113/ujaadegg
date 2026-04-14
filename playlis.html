@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Playlists - Hinos Futuros</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --font-inter: "Inter", sans-serif;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      body.dark {
+        background: #1a1a2e;
+        color: #e0e0e0;
+      }
+
+      body.black {
+        background: #000;
+        color: #fff;
+      }
+
+      /* Header */
+      .header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      body.dark .header {
+        background: rgba(30, 30, 46, 0.95);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .logo-link {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-decoration: none;
+        color: #667eea;
+      }
+
+      .theme-selector {
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        border: none;
+        background: #f0f0f0;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      body.dark .theme-selector {
+        background: #333;
+        color: #fff;
+      }
+
+      .theme-selector:hover {
+        transform: scale(1.05);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* Main Title */
+      .main-title {
+        text-align: center;
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: slideDown 0.6s ease-out;
+      }
+
+      @keyframes slideDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Carousel Container */
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      }
+
+      .carousel-wrapper {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%; /* 16:9 aspect ratio */
+        background: #000;
+      }
+
+      .carousel-track {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .carousel-slide {
+        min-width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      }
+
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Carousel Controls */
+      .carousel-controls {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+      }
+
+      .carousel-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid transparent;
+      }
+
+      .carousel-dot.active {
+        background-color: rgba(255, 255, 255, 1);
+        transform: scale(1.3);
+        border-color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* Carousel Buttons */
+      .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 5;
+      }
+
+      .carousel-button:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+        transform: translateY(-50%) scale(1.15);
+      }
+
+      .carousel-button.prev {
+        left: 15px;
+      }
+
+      .carousel-button.next {
+        right: 15px;
+      }
+
+      /* Playlist/Video Section Titles */
+      .section-title {
+        text-align: center;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        margin-top: 3rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Platform Grid */
+      .platform-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .platform-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 1.5rem;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        min-height: 160px;
+      }
+
+      .platform-card:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-8px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .platform-icon {
+        font-size: 3.5rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .platform-card:hover .platform-icon {
+        transform: scale(1.25) rotate(-10deg);
+      }
+
+      .platform-name {
+        font-weight: 700;
+        font-size: 1rem;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+      }
+
+      /* Video Grid */
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .video-card {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 12px;
+        padding: 1rem;
+        text-align: center;
+        text-decoration: none;
+        color: white;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+        min-height: 140px;
+      }
+
+      .video-card:hover {
+        background: rgba(255, 255, 255, 0.25);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-6px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .video-icon {
+        font-size: 3rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .video-card:hover .video-icon {
+        transform: scale(1.2) bounce;
+      }
+
+      .video-title {
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.3px;
+      }
+
+      /* Playlist Info Card */
+      .playlist-info-card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      .playlist-description {
+        color: white;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .btn-playlist-full {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 1rem 2rem;
+        background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 2px solid transparent;
+        box-shadow: 0 5px 20px rgba(255, 107, 107, 0.3);
+      }
+
+      .btn-playlist-full:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(255, 107, 107, 0.5);
+        border-color: rgba(255, 255, 255, 0.3);
+      }
+
+      .btn-playlist-full i {
+        font-size: 1.3rem;
+      }
+
+      /* Section Container */
+      .section-container {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+      }
+
+      /* Bottom Navigation */
+      .bottom-nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: 2px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-around;
+        padding: 0.8rem 0;
+        z-index: 50;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      body.dark .bottom-nav {
+        background: rgba(30, 30, 46, 0.95);
+        border-top: 2px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3rem;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: #666;
+        font-size: 0.75rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+      }
+
+      body.dark .nav-item {
+        color: #999;
+      }
+
+      .nav-item:hover {
+        color: #667eea;
+        transform: scale(1.1);
+      }
+
+      .nav-item.active {
+        color: #667eea;
+      }
+
+      .nav-icon {
+        font-size: 1.5rem;
+      }
+
+      /* Padding for bottom nav */
+      .nav-padding {
+        height: 100px;
+      }
+
+      @media (max-width: 768px) {
+        .main-title {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.5rem;
+        }
+
+        .platform-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 1rem;
+        }
+
+        .platform-card {
+          padding: 1rem;
+          min-height: 140px;
+        }
+
+        .platform-icon {
+          font-size: 2.5rem;
+        }
+
+        .carousel-button {
+          width: 35px;
+          height: 35px;
+          font-size: 16px;
+        }
+
+        .video-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .main-title {
+          font-size: 1.5rem;
+        }
+
+        .platform-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .video-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Animations */
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .section-container {
+        animation: fadeIn 0.6s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  </head>
+  <body class="light">
+    <!-- Header -->
+    <div class="header">
+      <a href="index.html" class="logo-link">🎵 PlayLists</a>
+      <select id="themeSelector" class="theme-selector">
+        <option value="light">☀️ Claro</option>
+        <option value="dark">🌙 Escuro</option>
+        <option value="black">⬛ Preto</option>
+      </select>
+    </div>
+
+    <!-- Main Container -->
+    <div class="container">
+      <!-- Page Title -->
+      <h1 class="main-title">Nossa Playlists 3° Coferencia Missionária</h1>
+
+      <!-- Carousel Section -->
+      <div class="carousel-container">
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <div class="carousel-slide">
+              <img src="assets/playlistatua.png" alt="Música Inspiradora" />
+            </div>
+            <div class="carousel-slide">
+              <img
+                src="assets/WhatsApp Image 2026-04-14 at 10.57.03.jpeg"
+                alt="Hinos Futuros"
+              />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/ouvirplay.png" alt="Playlist Musical" />
+            </div>
+            <div class="carousel-slide">
+              <img src="assets/ensaiobanner .png" alt="Celebração" />
+            </div>
+            <div class="carousel-slide">
+              <img
+                src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?w=700&h=394&fit=crop"
+                alt="Melhor Música"
+              />
+            </div>
+          </div>
+          <button class="carousel-button prev" id="prevButton">❮</button>
+          <button class="carousel-button next" id="nextButton">❯</button>
+          <div class="carousel-controls" id="carouselControls"></div>
+        </div>
+      </div>
+
+      <!-- Playlists Section -->
+      <div class="section-container">
+        <h2 class="section-title">Ouça em suas Plataformas Favoritas</h2>
+        <div class="platform-grid">
+          <a
+            href="https://www.youtube.com/playlist?list=PLr-bRYOm8dagcRIXnIyvqGcZ7hdzldomi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="platform-card"
+            title="Acesse nosso YouTube"
+          >
+            <span class="platform-icon"><i class="fab fa-youtube"></i></span>
+            <span class="platform-name">YouTube</span>
+          </a>
+          <a
+            href="https://open.spotify.com/playlist/7lYlPZsPYyuGHwAz72hgH7?si=f0d34a2498264248"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="platform-card"
+            title="Ouça no Spotify"
+          >
+            <span class="platform-icon"><i class="fab fa-spotify"></i></span>
+            <span class="platform-name">Spotify</span>
+          </a>
+          <a
+            href="https://music.youtube.com/playlist?list=PLr-bRYOm8dagcRIXnIyvqGcZ7hdzldomi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="platform-card"
+            title="Ouça no YouTube Music"
+          >
+            <span class="platform-icon"><i class="fas fa-music"></i></span>
+            <span class="platform-name">YouTube Music</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Playlist Info Card -->
+      <div class="section-container">
+        <h2 class="section-title">Playlist Especial</h2>
+        <div class="playlist-info-card">
+          <p class="playlist-description">
+            Acesse nossa playlist completa com todos os vídeos selecionados:
+          </p>
+          <a
+            href="https://www.youtube.com/playlist?list=PLr-bRYOm8dagcRIXnIyvqGcZ7hdzldomi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-playlist-full"
+          >
+            <i class="fab fa-youtube"></i> Abrir Playlist Completa
+          </a>
+        </div>
+      </div>
+
+      <!-- More Videos from Playlist -->
+      <div class="section-container">
+        <h2 class="section-title">🎬 Vídeos da Playlist</h2>
+        <div class="video-grid" id="playlistVideosGrid">
+          <p
+            style="
+              grid-column: 1 / -1;
+              text-align: center;
+              color: rgba(255, 255, 255, 0.8);
+              padding: 2rem;
+            "
+          >
+            Clique no botão abaixo para acessar a playlist completa com todos os
+            vídeos
+          </p>
+        </div>
+        <div style="text-align: center; margin-top: 2rem">
+          <a
+            href="https://www.youtube.com/playlist?list=PLr-bRYOm8dagcRIXnIyvqGcZ7hdzldomi"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-playlist-full"
+          >
+            <i class="fab fa-youtube"></i> Ver Toda a Playlist
+          </a>
+        </div>
+      </div>
+
+      <!-- Padding for bottom nav -->
+      <div class="nav-padding"></div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+      <a href="index.html" class="nav-item" data-page="index">
+        <span class="nav-icon">🏠</span>
+        <span>Início</span>
+      </a>
+
+      <a href="youthregistration.html" class="nav-item" data-page="perfil">
+        <span class="nav-icon">👤</span>
+        <span>Perfil</span>
+      </a>
+    </nav>
+
+    <!-- JavaScript -->
+    <script>
+      // Theme Management
+      const themeSelector = document.getElementById("themeSelector");
+      const body = document.body;
+
+      // Initialize theme from localStorage
+      function initTheme() {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        body.className = savedTheme;
+        themeSelector.value = savedTheme;
+      }
+
+      // Apply theme
+      themeSelector.addEventListener("change", (e) => {
+        const theme = e.target.value;
+        body.className = theme;
+        localStorage.setItem("theme", theme);
+      });
+
+      // Carousel Functionality
+      const carouselTrack = document.getElementById("carouselTrack");
+      const prevButton = document.getElementById("prevButton");
+      const nextButton = document.getElementById("nextButton");
+      const carouselControls = document.getElementById("carouselControls");
+
+      let currentIndex = 0;
+      const slides = carouselTrack.querySelectorAll(".carousel-slide");
+      const totalSlides = slides.length;
+
+      // Create carousel dots
+      function createDots() {
+        for (let i = 0; i < totalSlides; i++) {
+          const dot = document.createElement("div");
+          dot.classList.add("carousel-dot");
+          if (i === 0) dot.classList.add("active");
+          dot.addEventListener("click", () => goToSlide(i));
+          carouselControls.appendChild(dot);
+        }
+      }
+
+      // Update carousel position
+      function updateCarousel() {
+        carouselTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+        updateDots();
+      }
+
+      // Update dots
+      function updateDots() {
+        const dots = carouselControls.querySelectorAll(".carousel-dot");
+        dots.forEach((dot, index) => {
+          dot.classList.toggle("active", index === currentIndex);
+        });
+      }
+
+      // Go to specific slide
+      function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+      }
+
+      // Next slide
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      }
+
+      // Previous slide
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      }
+
+      // Auto-advance carousel every 5 seconds
+      setInterval(nextSlide, 5000);
+
+      // Button events
+      nextButton.addEventListener("click", nextSlide);
+      prevButton.addEventListener("click", prevSlide);
+
+      // Keyboard navigation
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") nextSlide();
+        if (e.key === "ArrowLeft") prevSlide();
+      });
+
+      // Initialize carousel
+      createDots();
+
+      // Playlist Videos Management
+      const playlistVideosGrid = document.getElementById("playlistVideosGrid");
+
+      // Function to add videos from playlist
+      function addPlaylistVideo(videoId, title) {
+        const videoCard = document.createElement("a");
+        videoCard.href = `https://www.youtube.com/watch?v=${videoId}`;
+        videoCard.target = "_blank";
+        videoCard.rel = "noopener noreferrer";
+        videoCard.className = "video-card";
+        videoCard.title = `Assista ${title}`;
+
+        videoCard.innerHTML = `
+          <span class="video-icon"><i class="fab fa-youtube"></i></span>
+          <span class="video-title">${title}</span>
+        `;
+
+        playlistVideosGrid.appendChild(videoCard);
+      }
+
+      // Add videos from the playlist (PLr-bRYOm8dagcRIXnIyvqGcZ7hdzldomi)
+      // You can add more videos here by calling addPlaylistVideo(videoId, title)
+
+      // Example: addPlaylistVideo('PepoiL4gDeI', 'Vídeo 1');
+      // To easily add more videos, use the playlist page to get video IDs
+
+      // Clear the initial placeholder text if we have videos
+      const placeholderText = playlistVideosGrid.querySelector("p");
+      if (playlistVideosGrid.children.length > 1) {
+        placeholderText.style.display = "none";
+      }
+
+      // Initialize theme on page load
+      initTheme();
+    </script>
+    <script src="playlist-config.js"></script>
+  </body>
+</html>

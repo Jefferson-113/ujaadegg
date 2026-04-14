@@ -55,7 +55,39 @@ button:hover {
   border-radius: 9px;
   cursor: pointer;
   text-decoration: none;
+}
 
+/* Dark Mode Support */
+html.dark .registration-form {
+  background-color: #374151;
+  color: #e5e7eb;
+}
+
+html.dark input,
+html.dark select {
+  background-color: #4b5563;
+  color: #e5e7eb;
+  border-color: #6366f1;
+}
+
+html.dark input::placeholder {
+  color: #9ca3af;
+}
+
+html.dark button {
+  background-color: #3b82f6;
+}
+
+html.dark button:hover {
+  background-color: #2563eb;
+}
+
+html.dark #buttonvoltar {
+  background-color: #3b82f6;
+}
+
+html.dark #buttonvoltar:hover {
+  background-color: #2563eb;
 }
 
 

@@ -1,44 +1,103 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styletwo.css" />
+    <link rel="stylesheet" href="style.css" />
     <title>Formulário de Cadastro</title>
   </head>
-  <body class="bg-gray-100 min-h-screen flex flex-col justify-center items-center">
+  <body
+    class="bg-gray-100 dark:bg-gray-800 min-h-screen flex flex-col justify-center items-center transition-colors duration-300"
+  >
+    <!-- Top Bar with Dark Mode Toggle -->
+    <div
+      class="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 px-4 py-3 sticky top-0 z-40 w-full"
+    >
+      <div class="flex justify-between items-center max-w-7xl mx-auto">
+        <a href="index.html" class="flex items-center">
+          <img src="assets/ujadeglogo2026.jpg" class="h-8" alt="Logo" />
+        </a>
+        <div class="flex items-center gap-2">
+          <select
+            id="theme-selector"
+            class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors cursor-pointer font-semibold text-sm border border-gray-300 dark:border-gray-600"
+          >
+            <option value="light">☀️ Claro</option>
+            <option value="dark">🌙 Escuro</option>
+            <option value="black">⬛ Preto</option>
+          </select>
+        </div>
+      </div>
+    </div>
     <div class="w-full flex flex-col items-center justify-center py-8">
-      <img 
-        src="assets/conferencia2025.png" 
-        alt="Logo" 
+      <img
+        src="assets/conferencia2025.png"
+        alt="Logo"
         class="max-w-xs w-full h-auto mb-6 rounded-lg shadow"
-        style="max-width: 220px;"
-      >
+        style="max-width: 220px"
+      />
       <form
         action="https://sheetdb.io/api/v1/r7yy7fwut5dqn"
         method="post"
-        class="w-full max-w-md bg-white p-6 rounded-lg shadow-md flex flex-col gap-4"
+        class="w-full max-w-md bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md flex flex-col gap-4 transition-colors duration-300"
       >
-        <h2 class="text-center mb-4 text-xl font-bold text-gray-700">Cadastro Jovens UJAADEGG 2025</h2>
+        <h2
+          class="text-center mb-4 text-xl font-bold text-gray-700 dark:text-white"
+        >
+          Cadastro Jovens UJAADEGG 2025
+        </h2>
         <div class="flex flex-col gap-1">
-          <label for="nome" class="font-medium">Nome:</label>
-          <input type="text" id="nome" name="data[nome]" required class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="nome" class="font-medium dark:text-white">Nome:</label>
+          <input
+            type="text"
+            id="nome"
+            name="data[nome]"
+            required
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="email" class="font-medium">E-mail:</label>
-          <input type="email" id="email" name="data[email]" required class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="email" class="font-medium dark:text-white">E-mail:</label>
+          <input
+            type="email"
+            id="email"
+            name="data[email]"
+            required
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="congregacao" class="font-medium">Congregação:</label>
-          <input type="text" id="congregacao" name="data[congregacao]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="congregacao" class="font-medium dark:text-white"
+            >Congregação:</label
+          >
+          <input
+            type="text"
+            id="congregacao"
+            name="data[congregacao]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="telefone" class="font-medium">Fone:</label>
-          <input type="tel" id="telefone" name="data[fone]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="telefone" class="font-medium dark:text-white"
+            >Fone:</label
+          >
+          <input
+            type="tel"
+            id="telefone"
+            name="data[fone]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="funcao" class="font-medium">Função na Igreja:</label>
-          <select id="funcao" name="data[funcao]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <label for="funcao" class="font-medium dark:text-white"
+            >Função na Igreja:</label
+          >
+          <select
+            id="funcao"
+            name="data[funcao]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          >
             <option value="canta">Nenhum</option>
             <option value="canta">Canta</option>
             <option value="prega">Prega</option>
@@ -46,47 +105,182 @@
           </select>
         </div>
         <div class="flex flex-col gap-1">
-          <label for="nome_pai" class="font-medium">Nome do Pai:</label>
-          <input type="text" id="nome_pai" name="data[nome_pai]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="nome_pai" class="font-medium dark:text-white"
+            >Nome do Pai:</label
+          >
+          <input
+            type="text"
+            id="nome_pai"
+            name="data[nome_pai]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="nome_mae" class="font-medium">Nome da Mãe:</label>
-          <input type="text" id="nome_mae" name="data[nome_mae]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="nome_mae" class="font-medium dark:text-white"
+            >Nome da Mãe:</label
+          >
+          <input
+            type="text"
+            id="nome_mae"
+            name="data[nome_mae]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="data_nascimento" class="font-medium">Data de Nascimento:</label>
-          <input type="date" id="data_nascimento" name="data[data_nascimento]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="data_nascimento" class="font-medium dark:text-white"
+            >Data de Nascimento:</label
+          >
+          <input
+            type="date"
+            id="data_nascimento"
+            name="data[data_nascimento]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="bairro" class="font-medium">Bairro:</label>
-          <input type="text" id="bairro" name="data[bairro]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="bairro" class="font-medium dark:text-white"
+            >Bairro:</label
+          >
+          <input
+            type="text"
+            id="bairro"
+            name="data[bairro]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="cidade" class="font-medium">Cidade:</label>
-          <input type="text" id="cidade" name="data[cidade]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="cidade" class="font-medium dark:text-white"
+            >Cidade:</label
+          >
+          <input
+            type="text"
+            id="cidade"
+            name="data[cidade]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col gap-1">
-          <label for="area" class="font-medium">Área:</label>
-          <input type="text" id="area" name="data[area]" class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          <label for="area" class="font-medium dark:text-white">Área:</label>
+          <input
+            type="text"
+            id="area"
+            name="data[area]"
+            class="border dark:border-gray-500 dark:bg-gray-600 dark:text-white rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
         </div>
         <div class="flex flex-col items-center gap-2 mt-2">
-          <button 
-            type="submit" 
-            name="submit" 
-            class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
-            onclick="return showAlert()"
-          >Enviar</button>
-          <a id="buttonvoltar" href="index.html" class="text-blue-600 hover:underline">Voltar</a>
+          <button
+            type="submit"
+            name="submit"
+            class="bg-blue-600 dark:bg-blue-700 text-white px-6 py-2 rounded hover:bg-blue-700 dark:hover:bg-blue-800 transition-colors"
+            onclick="return showAlert();"
+          >
+            Enviar
+          </button>
+          <a
+            id="buttonvoltar"
+            href="index.html"
+            class="text-blue-600 dark:text-blue-400 hover:underline"
+            >Voltar</a
+          >
         </div>
       </form>
     </div>
+
+    <!-- Bottom Navigation Menu -->
+    <nav
+      class="fixed bottom-0 left-0 right-0 bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-700 transition-colors duration-300 z-50"
+    >
+      <div class="flex justify-around items-center max-w-7xl mx-auto">
+        <a
+          href="index.html"
+          class="menu-link flex flex-col items-center justify-center w-20 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-1"
+        >
+          <svg
+            class="w-6 h-6 mb-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-3m0 0l7-4 7 4M5 9v10a1 1 0 001 1h12a1 1 0 001-1V9m-9 4v4m0 0v2m0-2h4v-4m-9-3l2-3m8 8l2-3M5 9V7a2 2 0 012-2h6a2 2 0 012 2v2m0 0h8"
+            />
+          </svg>
+          <span class="text-xs">Início</span>
+        </a>
+        <a
+          href="ensaio.html"
+          class="menu-link flex flex-col items-center justify-center w-20 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-1"
+        >
+          <svg
+            class="w-6 h-6 mb-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"
+            />
+          </svg>
+          <span class="text-xs">Ensaios</span>
+        </a>
+        <a
+          href="programacao.html"
+          class="menu-link flex flex-col items-center justify-center w-20 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-1"
+        >
+          <svg
+            class="w-6 h-6 mb-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <span class="text-xs">Programação</span>
+        </a>
+        <a
+          href="https://solistagrandecoralofi.vercel.app/"
+          class="menu-link flex flex-col items-center justify-center w-20 py-3 text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors flex-1"
+        >
+          <svg
+            class="w-6 h-6 mb-1"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+          <span class="text-xs">Solista</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Padding para o conteúdo não ficar atrás do menu -->
+    <div class="pb-20"></div>
     <script>
       function showAlert() {
-        alert('Formulário enviado com sucesso!');
+        alert("Formulário enviado com sucesso!");
         // Permite o envio do formulário após o alerta
         return true;
       }
     </script>
+    <script src="script.js"></script>
     <script src="index.js"></script>
   </body>
 </html>
